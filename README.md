@@ -1,1 +1,2 @@
-# Diploma v1.1
+Diploma project
+News site
