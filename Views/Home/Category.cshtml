@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Diploma_v1._1.Models.News>
+@{
+    ViewBag.Title = "Category";
+}
+<br />
+<h1>@ViewBag.Message</h1>
+<table class="table">
+    @foreach (var item in Model)
+    {
+        string content = "";
+        if (item.Content.Length > 300)
+            content = item.Content.Substring(0, 297) + "...";
+        else content = item.Content;
+        <tr>
+            <td>
+                <img src="data:image;base64,@System.Convert.ToBase64String(item.ImageData)" width="180" height="135" />
+            </td>
+            <td>
+                <h3>
+                    <a class="cat-title" asp-action="OnePage" asp-route-id="@item.Id">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </a>
+                </h3>
+                <div class="tn-content">
+                    @content
+                </div>
+              <br/>
+                @Html.DisplayFor(modelItem => item.TimeOfCreating)
+            </td>
+        </tr>
+    }
+</table>

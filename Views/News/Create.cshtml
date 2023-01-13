@@ -1,0 +1,58 @@
+﻿@model Diploma_v1._1.Models.News
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h1>Редактор новостей</h1>
+<hr />
+
+<div class="col-md-12">
+    <form asp-action="Create" asp-controller="News" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label asp-for="Title" class="control-label">Заголовок статьи</label>
+                <input asp-for="Title" class="form-control" width="80%" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Category" class="control-label">Категория</label>
+                <select asp-for="Category" class="form-control">
+                    <option>Категория</option>
+                    <option value="Политика">Политика</option>
+                    <option value="Экономика">Экономика</option>
+                    <option value="Проишествия">Проишествия</option>
+                    <option value="Культура">Культура</option>
+                    <option value="Технологии">Технологии</option>
+                    <option value="Общество">Общество</option>
+                    <option value="Спорт">Спорт</option>
+                </select>
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Content" class="control-label">Текст статьи</label>
+            <textarea asp-for="Content" class="form-control" rows="20"></textarea>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ImageData" class="control-label">Добавить изображение</label>
+            <input asp-for="ImageData" name="File" type="file" class="form-control" />
+            <span asp-validation-for="ImageData" class="text-danger" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Создать" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-action="Index">Вернуться к списку</a>
+</div>
+<br />
+
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+*@

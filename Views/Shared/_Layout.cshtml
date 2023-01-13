@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Favicon -->
+    <link href='@Url.Content("~/img/favicon.ico")' rel="icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href='@Url.Content("~/lib/slick/slick.css")' rel="stylesheet" type="text/css">
+    <link href='@Url.Content("~/lib/slick/slick-theme.css")' rel="stylesheet" type="text/css">
+
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+    <script src='@Url.Content("~/lib/easing/easing.min.js")' type="text/javascript"></script>
+    <script src='@Url.Content("~/lib/slick/slick.min.js")' type="text/javascript"></script>
+    <!-- Template Javascript -->
+    <script src='@Url.Content("~/js/main.js")' type="text/javascript"></script>
+
+    <!-- Template Stylesheet -->
+    <link href='@Url.Content("~/css/style.css")' rel="stylesheet" type="text/css">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                <a href="#" class="navbar-brand">MENU</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav m-auto">
+                        <a asp-action="Index" asp-controller="Home" class="nav-item nav-link">Главная страница</a>
+                        <a class="nav-item nav-link" @Html.ActionLink("Политика", "Category", "Home", new {categotyName="Политика"})/>
+                        <a class="nav-item nav-link" @Html.ActionLink("Экономика", "Category", "Home", new {categotyName="Экономика"}) />
+                        <a class="nav-item nav-link" @Html.ActionLink("Проишествия", "Category", "Home", new {categotyName="Проишествия"}) />
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ещё категории</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" @Html.ActionLink("Культура", "Category", "Home", new {categotyName="Культура"}) </a>
+                                <a class="dropdown-item" @Html.ActionLink("Технологии", "Category", "Home", new {categotyName="Технологии"}) </a>
+                                <a class="dropdown-item" @Html.ActionLink("Общество", "Category", "Home", new {categotyName="Общество"}) </a>
+                                <a class="dropdown-item" @Html.ActionLink("Спорт", "Category", "Home", new {categotyName="Спорт"}) </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <partial name="_LoginPartial" />
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 copyright">
+                    <p>Copyright &copy; <a href="https://htmlcodex.com">HTML Codex</a>. All Rights Reserved</p>
+                </div>
+
+                <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                <div class="col-md-6 template-by">
+                    <p>Template By <a href="https://htmlcodex.com">HTML Codex</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+@section Scripts{
+    @await RenderSectionAsync("Scripts", required: false)
+}

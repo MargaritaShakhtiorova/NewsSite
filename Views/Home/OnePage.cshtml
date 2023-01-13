@@ -1,0 +1,72 @@
+﻿@model Diploma_v1._1.Models.News
+
+<form asp-action="OnePage" asp-controller="Home">
+    <div class="breadcrumb-wrap">
+        <div class="container-fluid">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-action="Index">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">News</a></li>
+                <li class="breadcrumb-item active">News details</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="single-news">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="sn-content">
+                        <div class="sn-title" href=""> @Html.DisplayFor(x=>Model.Title)</div>
+                    </div>
+                    <div class="sn-img">
+                        <img src="data:image;base64,@System.Convert.ToBase64String(Model.ImageData)"/>
+                    </div>
+                    <div class="sn-content">
+                        @Html.DisplayFor(x=>Model.Content)
+                        <p></p>
+                        <div class="sn-date"><i class="far fa-clock"></i>@Html.DisplayFor(x=>Model.TimeOfCreating)</div>
+                        <div class="sn-date">@Html.DisplayFor(x=>Model.Autor)</div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="sidebar">
+                        <br />
+                        <div class="sidebar-widget">
+                            <h2><i class="fas fa-align-justify"></i>Категории</h2>
+                            <div class="category">
+                                <ul class="fa-ul">
+                                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span>
+                                        @Html.ActionLink("Политика", "Category", "Home", new {categotyName="Политика"})
+                                    </li>
+                                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span>
+                                        @Html.ActionLink("Экономика", "Category", "Home", new {categotyName="Экономика"})
+                                    </li>
+                                    <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span>
+                                        @Html.ActionLink("Проишествия", "Category", "Home", new {categotyName="Проишествия"})
+                                    </li>
+                                    <li>
+                                        <span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span>
+                                        @Html.ActionLink("Культура", "Category", "Home", new {categotyName="Культура"})
+                                    </li>
+                                    <li>
+                                        <span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span>
+                                        @Html.ActionLink("Технологии", "Category", "Home", new {categotyName="Технологии"})
+                                    </li>
+                                    <li>
+                                        <span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span>
+                                        @Html.ActionLink("Общество", "Category", "Home", new {categotyName="Общество"})
+                                    </li>
+                                    <li>
+                                        <span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span>
+                                        @Html.ActionLink("Спорт", "Category", "Home", new {categotyName="Спорт"})
+                                    </li>                                   
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

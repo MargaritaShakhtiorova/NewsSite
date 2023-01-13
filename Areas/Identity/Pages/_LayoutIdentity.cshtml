@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Favicon -->
+    <link href='@Url.Content("~/img/favicon.ico")' rel="icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href='@Url.Content("~/lib/slick/slick.css")' rel="stylesheet" type="text/css">
+    <link href='@Url.Content("~/lib/slick/slick-theme.css")' rel="stylesheet" type="text/css">
+
+    <!-- Template Stylesheet -->
+    <link href='@Url.Content("~/css/style.css")' rel="stylesheet" type="text/css">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                <a href="#" class="navbar-brand">MENU</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav m-auto">
+                        <a asp-action="Index" asp-controller="Home" class="nav-item nav-link">Главная страница</a>
+                        <a class="nav-item nav-link" @Html.ActionLink("Политика", "Category", "Home", new {categotyName="Политика"}) />
+                        <a class="nav-item nav-link" @Html.ActionLink("Экономика", "Category", "Home", new {categotyName="Экономика"}) />
+                        <a class="nav-item nav-link" @Html.ActionLink("Проишествия", "Category", "Home", new {categotyName="Проишествия"}) />
+                        <a class="dropdown-item" @Html.ActionLink("Общество", "Category", "Home", new {categotyName="Общество"}) </a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ещё категории</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" @Html.ActionLink("Культура", "Category", "Home", new {categotyName="Культура"}) </a>
+                                <a class="dropdown-item" @Html.ActionLink("Технологии", "Category", "Home", new {categotyName="Технологии"}) </a>
+                                <a class="dropdown-item" @Html.ActionLink("Спорт", "Category", "Home", new {categotyName="Спорт"}) </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <partial name="_LoginPartial" />
+            </nav>
+        </div>
+    </header>
+    @RenderBody()
+</body>
+</html>
